@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+50.times { Supplier.create(company: Faker::Company.name, user_id: 1) }
+
+20.times do
+  Category.create(name: Faker::Commerce.department(max: 1))
+  5.times do
+    s = Supplier.order('RAND()').first
+    e = Product.new(name: Faker::Commerce.product_name)
+    e.supplier = s
+    e.category = Category.last
+    e.save
+  end
+end
+
+print "#{Category.count} categories made "
+print "#{Supplier.count} suppliers made "
+print "#{Product.count} products made"
