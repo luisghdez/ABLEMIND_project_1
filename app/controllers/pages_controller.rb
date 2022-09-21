@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @suppliers = Supplier.all
+    @categories = Category.all.sort_by(&:name)
   end
 end

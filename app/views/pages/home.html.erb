@@ -5,3 +5,17 @@
   </div>
 </div>
 <%= link_to 'all suppliers', suppliers_path %>
+<div>
+  <h3>Proovedores de productos</h3>
+  <div class="row">
+    <% @categories.each do |c| %>
+      <div class="col-lg-3 col-sm-6">
+        <div>
+          <div class="card-body">
+            <h5 class="card-title"><%= c.name %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
