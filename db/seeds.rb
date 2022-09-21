@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-50.times { Supplier.create(company: Faker::Company.name, user_id: 1) }
+50.times do
+  s = Supplier.new(company: Faker::Company.name)
+  s.user = User.first
+  s.save
+end
 
 20.times do
   Category.create(name: Faker::Commerce.department(max: 1))

@@ -1,0 +1,16 @@
+<h1><%= @supplier.company %></h1>
+<p>Productos de esta empresa: </p>
+  <div class="row">
+    <% @sup_products.each do |s| %>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= s.name %></h5>
+            <p class="card-text">Aqui va la descripcion de cada empresa.</p>
+            <a href="#" class="btn btn-primary">Ver productos</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
