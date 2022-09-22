@@ -1,5 +1,10 @@
 <h1><%= @supplier.company %></h1>
-<p>Productos de esta empresa: </p>
+<% if params[:id] = current_user.id %>
+  <p>Productos de mi empresa</p>
+  <%= link_to 'agregar producto', new_product_path %>
+  <% else %>
+  <p>Productos de esta empresa: </p>
+<% end %>
   <div class="row">
     <% @sup_products.each do |s| %>
       <div class="col-lg-3 col-sm-6">
