@@ -2,9 +2,32 @@
   <div class="container">
     <h1>Encuentra <strong>todo</strong> lo que necesitas para tu <strong>empresa</strong>!</h1>
     <%# <a class="btn btn-flat" href="#">Buscar productos</a> %>
+    <%= form_with url: suppliers_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Que buscas?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 <%= link_to 'all suppliers', suppliers_path %>
+<h3>Empresas destacadas</h3>
+  <div class="row">
+    <% @suppliers.each do |s| %>
+      <div class="col-lg-3 col-sm-6">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= s.company %></h5>
+            <p class="card-text">Aqui va la descripcion de cada empresa.</p>
+             <%= link_to 'mas informacion', supplier_path(s), class:'btn btn-primary w-100' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <div>
   <h3>Proovedores de productos</h3>
   <div class="row">

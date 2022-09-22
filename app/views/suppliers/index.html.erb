@@ -1,4 +1,12 @@
 <h1>Todos nuestros proveedores</h1>
+<%= form_with url: suppliers_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Encuentra proveedor"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   <div class="row">
     <% @suppliers.each do |s| %>
       <div class="col-lg-3 col-sm-6">
