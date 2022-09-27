@@ -1,7 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
     <h1>Encuentra <strong>todo</strong> lo que necesitas para tu <strong>empresa</strong>!</h1>
-    <%# <a class="btn btn-flat" href="#">Buscar productos</a> %>
     <%= form_with url: suppliers_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
     params[:query],
@@ -13,6 +12,8 @@
   </div>
 </div>
 <%= link_to 'all suppliers', suppliers_path %>
+<br>
+<%= link_to 'favorite suppliers', supplier_favorite_suppliers_path(1) %>
 <h3>Empresas destacadas</h3>
   <div class="row">
     <% @suppliers.each do |s| %>
@@ -20,7 +21,10 @@
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title"><%= s.company %></h5>
+            <div>
+              <h5 class="card-title"><%= s.company %></h5>
+              <p><%= link_to 'favorite', supplier_favorite_suppliers_path(s), method: :post %></p>
+            </div>
             <p class="card-text">Aqui va la descripcion de cada empresa.</p>
              <%= link_to 'mas informacion', supplier_path(s), class:'btn btn-primary w-100' %>
           </div>

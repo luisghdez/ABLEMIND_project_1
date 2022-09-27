@@ -11,7 +11,10 @@
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title"><%= s.name %></h5>
+            <div>
+              <h5 class="card-title"><%= s.name %></h5>
+              <p><%= s.likes.count %> <%= link_to 'like', product_likes_path(s), method: :post %></p>
+            </div>
             <p class="card-text">Aqui va la descripcion de cada empresa.</p>
             <a href="#" class="btn btn-primary w-100">Me interesa</a>
           </div>
