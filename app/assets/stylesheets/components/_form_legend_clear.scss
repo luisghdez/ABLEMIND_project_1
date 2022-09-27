@@ -8,3 +8,40 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.my-forms {
+  padding: 6vh;
+  margin-top: 9vh;
+  max-width: 50%;
+  border-radius: 10px;
+}
+
+.form-btn {
+  background-color: #20af5f;
+  padding: inherit;
+  border-radius: 10px;
+  margin-right: 3vh;
+}
+
+.register-btn {
+  font-size: large;
+  align-self: center;
+  text-decoration: none;
+  // border: 1px #292a76 solid;
+  background-color: #292a76;
+  color: white;
+  border-radius: 10px;
+}
+
+a {
+  color: #292a76;
+  text-decoration: none;
+}
+
+.self-align {
+  align-self: center;
+}
+
+.margin-right {
+  margin-right: 3vh;
+}

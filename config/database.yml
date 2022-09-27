@@ -53,3 +53,4 @@ production:
   database: ABLEMIND_project_1_production
   username: ABLEMIND_project_1
   password: <%= ENV['ABLEMIND_PROJECT_1_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
