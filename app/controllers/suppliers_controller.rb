@@ -18,7 +18,7 @@ class SuppliersController < ApplicationController
 
   def show
     @supplier = Supplier.find(params[:id])
-    @sup_products = Product.where(supplier_id: @supplier.id)
+    @sup_products = Post.where(posteable_id: @supplier.id)
   end
 
   def new

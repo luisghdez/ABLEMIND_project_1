@@ -7,8 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-50.times do
+20.times do
   s = Supplier.new(company: Faker::Company.name)
+  s.user = User.first
+  s.save
+end
+
+20.times do
+  s = Maquila.new(name: Faker::Company.name)
   s.user = User.first
   s.save
 end
@@ -17,13 +23,20 @@ end
   Category.create(name: Faker::Commerce.department(max: 1))
   5.times do
     s = Supplier.order('RAND()').first
-    e = Product.new(name: Faker::Commerce.product_name)
-    e.supplier = s
-    e.category = Category.last
+    e = Post.new(name: Faker::Commerce.product_name)
+    e.posteable = s
     e.save
   end
 end
 
+5.times do
+  m = Maquila.order('RAND()').first
+  e = Post.new(name: "Looking for: #{Faker::Commerce.product_name}")
+  e.posteable = m
+  e.save
+end
+
 print "#{Category.count} categories made "
 print "#{Supplier.count} suppliers made "
-print "#{Product.count} products made"
+print "#{Post.count} posts made"
+print "#{Maquila.count} maquilas made"
