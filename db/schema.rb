@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_27_183443) do
+ActiveRecord::Schema.define(version: 2022_09_28_194609) do
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 2022_09_27_183443) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "favorite_suppliers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "supplier_id", null: false
+  create_table "favorite_companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["supplier_id"], name: "index_favorite_suppliers_on_supplier_id"
-    t.index ["user_id"], name: "index_favorite_suppliers_on_user_id"
+    t.string "favoriteable_type", null: false
+    t.bigint "favoriteable_id", null: false
+    t.bigint "user_id"
+    t.index ["favoriteable_type", "favoriteable_id"], name: "index_favorite_companies_on_favoriteable"
+    t.index ["user_id"], name: "index_favorite_companies_on_user_id"
   end
 
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -32,18 +33,27 @@ ActiveRecord::Schema.define(version: 2022_09_27_183443) do
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "post_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["product_id"], name: "index_likes_on_product_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "maquilas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.bigint "category_id", null: false
-    t.bigint "supplier_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
-    t.index ["supplier_id"], name: "index_products_on_supplier_id"
+    t.index ["user_id"], name: "index_maquilas_on_user_id"
+  end
+
+  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "posteable_type", null: false
+    t.bigint "posteable_id", null: false
+    t.index ["posteable_type", "posteable_id"], name: "index_posts_on_posteable"
   end
 
   create_table "suppliers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -62,16 +72,14 @@ ActiveRecord::Schema.define(version: 2022_09_27_183443) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "is_supplier"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "favorite_suppliers", "suppliers"
-  add_foreign_key "favorite_suppliers", "users"
-  add_foreign_key "likes", "products"
+  add_foreign_key "favorite_companies", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "posts", column: "product_id"
   add_foreign_key "likes", "users"
-  add_foreign_key "products", "categories"
-  add_foreign_key "products", "suppliers"
+  add_foreign_key "maquilas", "users"
   add_foreign_key "suppliers", "users"
 end

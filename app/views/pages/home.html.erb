@@ -13,7 +13,7 @@
 </div>
 <%= link_to 'all suppliers', suppliers_path %>
 <br>
-<%= link_to 'favorite suppliers', supplier_favorite_suppliers_path(1) %>
+<%= link_to 'favorite suppliers', favorite_companies_path(1) %>
 <h3>Empresas destacadas</h3>
   <div class="row">
     <% @suppliers.each do |s| %>
@@ -23,7 +23,7 @@
           <div class="card-body">
             <div>
               <h5 class="card-title"><%= s.company %></h5>
-              <p><%= link_to 'favorite', supplier_favorite_suppliers_path(s), method: :post %></p>
+              <p><%= link_to 'favorite', favorite_companies_path(s), method: :post %></p>
             </div>
             <p class="card-text">Aqui va la descripcion de cada empresa.</p>
              <%= link_to 'mas informacion', supplier_path(s), class:'btn btn-primary w-100' %>
