@@ -7,8 +7,7 @@ class PostsController < ApplicationController
   def create
     mysup = Supplier.find_by(user_id: current_user.id)
     @newpost = Post.new(posts_params)
-    @newpost.supplier = mysup
-    @newpost.category = Category.find(params[:post][:category])
+    @newpost.posteable = mysup
     if @newpost.save
       redirect_to supplier_path(mysup[:id])
     else

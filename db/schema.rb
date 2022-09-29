@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_28_194609) do
+ActiveRecord::Schema.define(version: 2022_09_28_235404) do
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -30,12 +30,10 @@ ActiveRecord::Schema.define(version: 2022_09_28_194609) do
 
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "post_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
-    t.index ["product_id"], name: "index_likes_on_product_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -78,7 +76,6 @@ ActiveRecord::Schema.define(version: 2022_09_28_194609) do
 
   add_foreign_key "favorite_companies", "users"
   add_foreign_key "likes", "posts"
-  add_foreign_key "likes", "posts", column: "product_id"
   add_foreign_key "likes", "users"
   add_foreign_key "maquilas", "users"
   add_foreign_key "suppliers", "users"
