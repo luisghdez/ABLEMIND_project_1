@@ -1,7 +1,7 @@
 <h1><%= @supplier.company %></h1>
 <% if @supplier.user == current_user %>
   <p>Productos de mi empresa</p>
-  <%= link_to 'agregar producto', new_product_path %>
+  <%= link_to 'agregar producto', new_post_path %>
   <% else %>
   <p>Productos de esta empresa: </p>
 <% end %>
@@ -13,7 +13,7 @@
           <div class="card-body">
             <div>
               <h5 class="card-title"><%= s.name %></h5>
-              <p><%= s.likes.count %> <%= link_to 'like', product_likes_path(s), method: :post %></p>
+              <p><%= s.likes.count %> <%= link_to 'like', post_likes_path(s), method: :post %></p>
             </div>
             <p class="card-text">Aqui va la descripcion de cada empresa.</p>
             <a href="#" class="btn btn-primary w-100">Me interesa</a>

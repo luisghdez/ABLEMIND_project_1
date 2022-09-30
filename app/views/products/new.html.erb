@@ -1,6 +1,0 @@
-<%= simple_form_for [@newproduct] do |f| %>
-  <%= f.input :name %>
-  <p>Categoria</p>
-  <div class="selector"><%= f.collection_select :category, @categories, :id, :name %></div>
-  <div><%= f.button :submit, 'Agregar producto', class: 'btn btn-primary' %></div>
-<% end %>
