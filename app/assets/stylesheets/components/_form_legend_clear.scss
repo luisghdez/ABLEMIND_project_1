@@ -48,5 +48,25 @@ a {
 
 
 .register-form-inputs {
-  width: 70vh;
+  width: 100%;
+  padding-top: 3%;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.proveedor-btn {
+  background-color: #292a76;
+}
+
+.btn-primary {
+
+}
+
+.width-40 {
+  width: 40%;
 }
