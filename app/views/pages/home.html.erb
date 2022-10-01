@@ -1,23 +1,25 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://sloanreview.mit.edu/wp-content/uploads/2020/06/GEN-Mummalaneni-Supplier-Diversity-2400x1260-1-1200x630.jpg);">
+  <div class="home-search">
     <h1>Encuentra <strong>todo</strong> lo que necesitas para tu <strong>empresa</strong>!</h1>
     <%= form_with url: suppliers_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Que buscas?"
+    placeholder: "¿Que buscas?"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-<%= link_to 'all suppliers', suppliers_path %>
 <br>
-<%= link_to 'favorite suppliers', favorite_companies_path(1) %>
-<h3>Empresas destacadas</h3>
-  <div class="row">
+<%# <%= link_to 'favorite suppliers', favorite_companies_path(1) %>
+<div>
+  <h3>Empresas destacadas</h3>
+  <%= link_to 'Ver todas', suppliers_path %>
+</div>
+  <div class="row card-group">
     <% @suppliers.each do |s| %>
-      <div class="col-lg-3 col-sm-6">
+      <div class="col-lg-3 col-sm-6 sup-card">
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
           <div class="card-body">
@@ -26,7 +28,7 @@
               <p><%= link_to 'favorite', favorite_companies_path(s), method: :post %></p>
             </div>
             <p class="card-text">Aqui va la descripcion de cada empresa.</p>
-             <%= link_to 'mas informacion', supplier_path(s), class:'btn btn-primary w-100' %>
+             <%= link_to 'mas informacion', supplier_path(s), class:'btn proveedor-btn w-100' %>
           </div>
         </div>
       </div>
