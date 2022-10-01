@@ -60,11 +60,23 @@ a {
 }
 
 .proveedor-btn {
-  background-color: #292a76;
+  border: 1px solid #292a76;
+  width: 100%;
 }
 
-.btn-primary {
+.proveedor-btn:hover {
+  color: white !important;
+  background-color: #292a76 !important;
+}
 
+.maquila-btn {
+  border: 1px solid #20af5f;
+  width: 100%;
+}
+
+.maquila-btn:hover {
+  color: white !important;
+  background-color: #20af5f !important;
 }
 
 .width-40 {

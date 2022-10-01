@@ -1,0 +1,20 @@
+<h1>Dashboard para <%= @mysup.company %></h1>
+
+<%= link_to 'Editar', '#' %>
+<%= link_to 'Agregar producto', new_post_path %>
+
+<p>Clientes potenciales: </p>
+
+<p>Mis productos:</p>
+<div class='row'>
+  <p class='col-sm'>Producto</p>
+  <p class='col-sm'>Likes</p>
+</div>
+<% @productos.each do |a| %>
+<div>
+  <div class='row'>
+    <p class='col-sm'><%= a.name %></p>
+    <p class='col-sm'><%= a.likes.count %></p>
+  </div>
+</div>
+<% end %>

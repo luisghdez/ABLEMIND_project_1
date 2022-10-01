@@ -1,0 +1,19 @@
+<h1>Dashboard para <%= @mymaq.name %></h1>
+<%= link_to 'Editar', '#' %>
+<%= link_to 'Agregar anuncio', new_post_path %>
+
+<p>Clientes potenciales: </p>
+
+<p>Mis anuncios:</p>
+<div class='row'>
+  <p class='col-sm'>Nombre</p>
+  <p class='col-sm'>Likes</p>
+</div>
+<% @anuncios.each do |a| %>
+<div>
+  <div class='row'>
+    <p class='col-sm'><%= a.name %></p>
+    <p class='col-sm'><%= a.likes.count %></p>
+  </div>
+</div>
+<% end %>

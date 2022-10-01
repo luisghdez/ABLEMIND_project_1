@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     # , sessions: 'users/sessions'
   }
   root to: "pages#home"
+  get 'maquiladashboard', to: 'pages#maquila_dashboard'
+  get 'supplierdashboard', to: 'pages#supplier_dashboard'
 
   resources :favorite_companies, only: %i[index create]
   resources :suppliers, only: %i[index show new create]

@@ -1,6 +1,6 @@
 <div class='register-form'>
 <div class='my-forms shadow bg-white'>
-  <h2>Registrate en nuestra plataforma de forma gratuita</h2>
+  <h2>Registrate en nuestra plataforma de forma gratuita.</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.error_notification %>
@@ -20,11 +20,11 @@
       </div>
       <p class="form-inputs">Registrarse como:</p>
       <div class='d-flex justify-content-around'>
-        <div class="form-actions width-40 btn btn-outline-primary">
-          <%= f.button :submit, "Proveedor" %>
+        <div class="form-actions width-40">
+          <%= f.button :submit, "Proveedor", class: 'proveedor-btn' %>
         </div>
-        <div class="form-actions width-40 btn btn-outline-success">
-          <%= f.button :submit, "Maquila" %>
+        <div class="form-actions width-40">
+          <%= f.button :submit, "Maquila", class: 'maquila-btn' %>
         </div>
       </div>
     </div>
