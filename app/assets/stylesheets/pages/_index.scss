@@ -1,2 +1,19 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+.search-card {
+  display: flex;
+  padding-bottom: 1.5rem;
+}
+
+.search-card-body {
+  width: 100%;
+  align-self: center;
+  padding: 0 12px 0 12px;
+}
+
+.search-card-img {
+  height: 30vh;
+  width: auto;
+}

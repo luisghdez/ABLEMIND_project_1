@@ -14,6 +14,7 @@ class SuppliersController < ApplicationController
     else
       @suppliers = Supplier.all
     end
+    @categories = Category.all.sort_by(&:name)
   end
 
   def show

@@ -5,22 +5,30 @@
     class: "form-control",
     placeholder: "Encuentra proveedor"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn search-btn" %>
 <% end %>
-  <div class="row">
-    <% @suppliers.each do |s| %>
-      <div class="col-lg-3 col-sm-6">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
-          <div class="card-body">
-            <div>
-              <h5 class="card-title"><%= s.company %></h5>
-              <p><%= link_to 'favorite', favorite_companies_path(s), method: :post %></p>
+  <div class="row pt-4">
+    <div class='col-3'>
+      <p>Categories</p>
+      <ul>
+        <% @categories.each do |c| %>
+          <li><%= link_to c.name, '#' %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class='col-9'>
+      <% @suppliers.each do |s| %>
+          <div class="search-card">
+            <img class="search-card-img" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
+            <div class="search-card-body">
+              <div>
+                <h5 class="card-title"><%= s.company %></h5>
+                <p><%= link_to 'favorite', favorite_companies_path(s), method: :post %></p>
+              </div>
+              <p class="card-text">Aqui va la descripcion de cada empresa.</p>
+              <%= link_to 'mas informacion', supplier_path(s), class:'btn register-btn w-100' %>
             </div>
-            <p class="card-text">Aqui va la descripcion de cada empresa.</p>
-             <%= link_to 'mas informacion', supplier_path(s), class:'btn btn-primary w-100' %>
           </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
