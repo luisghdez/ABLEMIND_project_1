@@ -18,9 +18,9 @@
           <% mysup = Supplier.find_by(user_id: current_user.id) %>
           <% mymaq = Maquila.find_by(user_id: current_user.id) %>
             <% if mymaq != nil %>
-              <%= link_to "Maquila Dashboard", maquiladashboard_path, class: "nav-link" %>
+              <%= link_to "Dashboard", maquiladashboard_path, class: "nav-link" %>
             <% elsif mysup != nil %>
-              <%= link_to "Proveedor Dashboard", supplierdashboard_path, class: "nav-link" %>
+              <%= link_to "Dashboard", supplierdashboard_path, class: "nav-link" %>
             <% end %>
           </li>
           <%# <li class="nav-item"> %>
@@ -38,12 +38,14 @@
     </div>
   </div>
 </div>
+
 <div class="topnav" id='myTopnav' data-controller="my-navbar">
-  <a href="#home" class="active">Inicio</a>
-  <a href="#about">Mi Dashboard</a>
-  <a href="#news">Proveedores</a>
-  <a href="#contact">Maquilas</a>
-  <a href="#about">Posts</a>
+  <a href="#">INICIO</a>
+  <a href="#">BUSCAR EMPLEO</a>
+  <a href="#">CANDIDATOS</a>
+  <a href="#">SECCION EMPRESARIAL</a>
+  <%= link_to 'PROVEEDORES', suppliers_path, class: 'active' %>
+  <a href="#">BLOG</a>
   <a href="javascript:void(0);" class="icon" data-action="click->my-navbar#myFunction">
     <i class="fa fa-bars"></i>
   </a>
