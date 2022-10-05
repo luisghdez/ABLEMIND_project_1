@@ -1,5 +1,22 @@
-<h1>Registrate como proveedor</h1>
-<%= simple_form_for @newsupplier do |f| %>
-  <%= f.input :company %>
-  <%= f.submit 'submit', class: 'btn btn-primary' %>
-<% end %>
+<div class='register-form'>
+  <div class='my-forms shadow bg-white'>
+  <h1>Registrate como proveedor</h1>
+    <%= simple_form_for @newsupplier do |f| %>
+      <%= f.error_notification %>
+      <div class='d-flex flex-column justify-content-center'>
+        <div class="form-inputs register-form-inputs">
+          <%= f.input :company, required: true, label: 'Nombre de empresa' %>
+          <%= f.input :contact_name, required: true, label: 'Persona de contacto' %>
+          <%= f.input :description, as: :text, required: true, label: 'Descripcion comercial de tu empresa', :input_html => {:minlength => 200} %>
+          <p>Categoria de tu empresa</p>
+          <div class="selector mb-3"><%= f.collection_select :category_id, @categories, :id, :name, required: true %></div>
+          <%= f.input :year_start, required: true, label: 'Antiguedad' %>
+          <%= f.input :phone_num, required: true, label: 'Telefono' %>
+          <%= f.input :address, required: true, label: 'Direccion' %>
+          <%= f.input :zip_code, required: true, label: 'Codigo postal' %>
+          <%= f.submit 'Registrarme', class: 'btn register-btn' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

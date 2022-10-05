@@ -24,6 +24,7 @@ class SuppliersController < ApplicationController
 
   def new
     @newsupplier = Supplier.new
+    @categories = Category.all.sort_by(&:name)
   end
 
   def create
@@ -39,6 +40,6 @@ class SuppliersController < ApplicationController
   private
 
   def suppliers_params
-    params.require(:supplier).permit(:company)
+    params.require(:supplier).permit(:company, :contact_name, :description, :year_start, :phone_num, :address, :zip_code)
   end
 end
