@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   def new
     @newpost = Post.new
     @categories = Category.all.sort_by(&:name)
-    raise
   end
 
   def create
@@ -16,6 +15,9 @@ class PostsController < ApplicationController
     @newpost = Post.new(posts_params)
     @newpost.posteable = company
     if @newpost.save
+      params[:post][:photo]['image'].each do |img|
+      @photo = @newpost.photos.create!(:image => img)
+      end
       if company.instance_of?(Maquila)
         redirect_to maquiladashboard_path
       elsif company.instance_of?(Supplier)
@@ -29,6 +31,6 @@ class PostsController < ApplicationController
   private
 
   def posts_params
-    params.require(:post).permit(:name)
+    params.require(:post).permit(:name, photo_attributes: [:image])
   end
 end

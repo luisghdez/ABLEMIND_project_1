@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_05_214025) do
+ActiveRecord::Schema.define(version: 2022_10_05_230050) do
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2022_10_05_214025) do
     t.string "address", null: false
     t.string "zip_code", null: false
     t.index ["user_id"], name: "index_maquilas_on_user_id"
+  end
+
+  create_table "photos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.bigint "post_id", null: false
+    t.index ["post_id"], name: "index_photos_on_post_id"
   end
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -90,6 +98,7 @@ ActiveRecord::Schema.define(version: 2022_10_05_214025) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "maquilas", "users"
+  add_foreign_key "photos", "posts"
   add_foreign_key "suppliers", "categories"
   add_foreign_key "suppliers", "users"
 end
