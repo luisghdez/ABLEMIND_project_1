@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def new
     @newpost = Post.new
     @categories = Category.all.sort_by(&:name)
+    raise
   end
 
   def create

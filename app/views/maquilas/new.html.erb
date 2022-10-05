@@ -1,5 +1,18 @@
-<h2>Registrate como Maquila</h2>
-<%= simple_form_for @newmaquila do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'submit', class: 'btn btn-primary' %>
-<% end %>
+<div class='register-form'>
+  <div class='my-forms shadow bg-white'>
+    <h2>Registrate como Maquila</h2>
+    <%= simple_form_for @newmaquila do |f| %>
+          <%= f.error_notification %>
+          <div class='d-flex flex-column justify-content-center'>
+            <div class="form-inputs register-form-inputs">
+              <%= f.input :name, required: true, label: 'Nombre de empresa' %>
+              <%= f.input :contact_name, required: true, label: 'Persona de contacto' %>
+              <%= f.input :phone_num, required: true, label: 'Telefono' %>
+              <%= f.input :address, required: true, label: 'Direccion' %>
+              <%= f.input :zip_code, required: true, label: 'Codigo postal' %>
+              <%= f.submit 'Registrarme', class: 'btn register-btn' %>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>
