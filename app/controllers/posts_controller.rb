@@ -2,6 +2,13 @@ class PostsController < ApplicationController
   def new
     @newpost = Post.new
     @categories = Category.all.sort_by(&:name)
+    mymaq = Maquila.find_by(user_id: current_user.id)
+    mysup = Supplier.find_by(user_id: current_user.id)
+    if mymaq != nil
+      @word = 'Anuncio'
+    elsif mysup != nil
+      @word = 'Producto'
+    end
   end
 
   def create

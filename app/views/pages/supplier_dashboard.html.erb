@@ -1,20 +1,28 @@
 <h1>Dashboard para <%= @mysup.company %></h1>
 
-<%= link_to 'Editar', '#' %>
-<%= link_to 'Agregar producto', new_post_path %>
+<%= link_to 'Agregar producto', new_post_path, class: 'btn register-btn' %>
 
-<p>Clientes potenciales: </p>
+<p class='mt-3'><strong>Clientes Potenciales:</strong></p>
+<div class='row'>
+  <p class='col-sm'>Empresa</p>
+  <p class='col-sm'>Correo</p>
+  <p class='col-sm'>Producto</p>
+</div>
 
-<p>Mis productos:</p>
+<p><strong>Mis Productos:</strong></p>
 <div class='row'>
   <p class='col-sm'>Producto</p>
   <p class='col-sm'>Likes</p>
+  <p class='col-sm'>Views</p>
+  <p class='col-sm'>Interesados</p>
 </div>
 <% @productos.each do |a| %>
 <div>
   <div class='row'>
     <p class='col-sm'><%= a.name %></p>
     <p class='col-sm'><%= a.likes.count %></p>
+    <p class='col-sm'><%= '0' %></p>
+    <p class='col-sm'><%= '0' %></p>
   </div>
 </div>
 <% end %>

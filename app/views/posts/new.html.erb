@@ -1,10 +1,16 @@
-<%= simple_form_for [@newpost] do |f| %>
-  <%= f.input :name %>
-  <%= f.fields_for :photo do |t| %>
-  <div>
-    <%= t.label :image %>
-    <%= t.file_field :image, :multiple => true %>
-  </div>
+<div class='register-form'>
+  <div class='my-forms shadow bg-white'>
+  <h1>Crea un nuevo <%= @word %></h1>
+  <%= simple_form_for [@newpost] do |f| %>
+    <%= f.input :name, label: 'Titulo' %>
+    <%= f.input :description, as: :text, label: 'Descripcion' %>
+    <%= f.fields_for :photo do |t| %>
+    <div class='mb-3'>
+      <%= t.label :image, label: 'Imagenes' %>
+      <%= t.file_field :image, :multiple => true %>
+    </div>
+    <% end %>
+    <div><%= f.button :submit, 'Agregar', class: 'btn register-btn' %></div>
   <% end %>
-  <div><%= f.button :submit, 'Agregar', class: 'btn register-btn' %></div>
-<% end %>
+  </div>
+</div>
