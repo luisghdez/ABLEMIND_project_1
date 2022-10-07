@@ -26,10 +26,18 @@ legend ~ div.form-check:first-of-type {
   font-size: large;
   align-self: center;
   text-decoration: none;
-  // border: 1px #292a76 solid;
   background-color: #292a76;
   color: white;
   border-radius: 10px;
+}
+
+.green-btn {
+    font-size: large;
+    align-self: center;
+    text-decoration: none;
+    background-color: #20af5f;
+    color: white;
+    border-radius: 10px;
 }
 
 a {
