@@ -22,6 +22,8 @@ class SuppliersController < ApplicationController
   def show
     @supplier = Supplier.find(params[:id])
     @sup_products = Post.where(posteable_id: @supplier.id)
+    @image = Post.find(107).photos.first.image
+    raise
   end
 
   def new
