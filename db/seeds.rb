@@ -7,14 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+description1 = 'Lorem ipsum dolor sit amet. Aut dicta atque quo iusto veritatis sit vitae quam id maxime suscipit et nostrum beatae est deserunt tenetur sit mollitia itaque. Vel repellendus omnis non deleniti velit eum ipsa quibusdam. In repellendus explicabo et totam dignissimos vel illum voluptatem id iure sint 33 minus omnis aut labore dicta.
+
+Et soluta ullam non tempore ipsam hic distinctio corporis quo dicta atque qui nulla sequi. A corporis voluptatem quo perspiciatis fugiat ut ipsam odio a voluptatem blanditiis et vero autem id enim voluptas?
+
+Aut voluptas sint pariatur nostrum sed minus odio. Et excepturi voluptatem qui doloribus internos At asperiores Quis?'
+
 20.times do
-  s = Supplier.new(company: Faker::Company.name)
+  s = Supplier.new(company: Faker::Commerce.vendor, contact_name: Faker::Name.name , description: description1, year_start:'1990', phone_num:'656-289-1010', address: Faker::Address.street_address, zip_code: Faker::Address.zip)
   s.user = User.first
   s.save
 end
 
 20.times do
-  s = Maquila.new(name: Faker::Company.name)
+  s = Maquila.new(name: Faker::Company.name, contact_name: Faker::Name.name, phone_num:'656-289-1010', address: Faker::Address.street_address, zip_code: Faker::Address.zip)
   s.user = User.first
   s.save
 end

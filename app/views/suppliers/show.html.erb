@@ -1,19 +1,19 @@
   <div class='mb-4 sup-header'>
     <h1><%= @supplier.company %></h1>
+    <div class='d-flex'>
+      <i class="fa fa-phone mr-1"></i>
+      <p><%= @supplier.phone_num %></p>
+    </div>
+    <div class='d-flex'>
+      <i class="fa fa-map-marker-alt mr-1"></i>
+      <p><%= @supplier.address %></p>
+    </div>
     <%= link_to 'Contactar', '#', class: 'btn green-btn' %>
   </div>
   <div class='row'>
     <div class='col-9'>
       <h5>Descripción de la empresa: </h5>
-      <p>
-      Juguetesalpormayor.com es una importante empresa juguetera que se dedica a la distribución al por mayor y al por menor de juguetes. Somos proveedores de juegos educativos, juegos de construcción, puzzles, robot, peluches, juguetes para bebés, figuras de acción, etc.
-
-    Contamos con más de 10 mil referencias de productos de las mejores marcas: Hasbro, Imc Toys, Lego, Mattel, Clementoni, Famosa, Muñecas Arias, Clementoni, Molto, Playmobil, etc. Nuestros clientes disfrutarán de precios imbatibles.
-
-    Podemos decir con orgullo que asesoramos de primera mano a todos nuestros potenciales clientes cuando vayan a montar una tienda física. Y disponemos de un método muy cómodo de asociación con nosotros en el cual se podrá disfrutar de súper descuentos.
-
-    Si lo que quieres es iniciar un proyecto online mediante dropshipping con un stock sincronizado con nosotros. También podemos ofrecerte el servicio de creación de tu tienda online llave en mano o incluso servicio de marketing como creación de banners para tu web actual.
-      </p>
+      <p><%= @supplier.description %></p>
       <h5>Productos de esta empresa: </h5>
       <div class="row">
         <% @sup_products.each do |s| %>

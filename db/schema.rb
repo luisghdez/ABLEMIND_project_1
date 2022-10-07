@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_05_230803) do
+ActiveRecord::Schema.define(version: 2022_10_05_230050) do
 
   create_table "categories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_10_05_230803) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "posteable_type", null: false
     t.bigint "posteable_id", null: false
-    t.string "description"
     t.index ["posteable_type", "posteable_id"], name: "index_posts_on_posteable"
   end
 
@@ -73,7 +72,7 @@ ActiveRecord::Schema.define(version: 2022_10_05_230803) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "contact_name", null: false
-    t.string "description", null: false
+    t.string "description", limit: 1500, null: false
     t.string "year_start", null: false
     t.string "phone_num", null: false
     t.string "address", null: false
