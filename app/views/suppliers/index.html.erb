@@ -23,7 +23,7 @@
             <div class="search-card-body">
               <div>
                 <h5 class="card-title"><%= s.company %></h5>
-                <p><%= link_to 'favorite', favorite_companies_path(s), method: :post %></p>
+                <p><% link_to 'favorite', favorite_companies_path(s), method: :post %></p>
               </div>
               <p class="card-text">Aqui va la descripcion de cada empresa.</p>
               <%= link_to 'mas informacion', supplier_path(s), class:'btn register-btn w-100' %>

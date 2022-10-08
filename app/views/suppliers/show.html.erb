@@ -8,7 +8,7 @@
       <i class="fa fa-map-marker-alt mr-1"></i>
       <p><%= @supplier.address %></p>
     </div>
-    <%= link_to 'Contactar', '#', class: 'btn green-btn' %>
+    <%= link_to 'Contactar', '#form', class: 'btn green-btn' %>
   </div>
   <div class='row'>
     <div class='col-9'>
@@ -32,8 +32,34 @@
           </div>
         <% end %>
       </div>
+      <div id='form' class='register-form'>
+        <div class='my-forms-contact shadow bg-white'>
+        <h1>Contactar con <%= @supplier.company %> </h1>
+     <%= simple_form_for :email, :url => '#' do |f| %>
+      <%= f.error_notification %>
+      <div class='d-flex flex-column justify-content-center'>
+        <div class="form-inputs register-form-inputs">
+          <%= f.input :company, required: true, label: 'Email', placeholder: current_user.email %>
+          <%= f.input :contact_name, required: true, label: 'Persona de contacto' %>
+          <%= f.input :description, as: :text, required: true, label: 'Detalla tus necesidades', :input_html => {:minlength => 200} %>
+          <p>En cual producto estas interesado?</p>
+          <div class="selector mb-3"><%= f.collection_select :post_id, @sup_products, :id, :name, required: true %></div>
+          <%= f.input :phone_num, required: true, label: 'Telefono' %>
+          <%= f.input :address, required: true, label: 'Direccion' %>
+          <%= f.submit 'Enviar', class: 'btn green-btn w-100'  %>
+        </div>
+      </div>
+    <% end %>
+        </div>
+      </div>
     </div>
     <div class='col-3 d-flex flex-column justify-content-center align-items-center border'>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
       <p>ESPACIO PARA ANUNCIO</p>
       <br><br><br><br><br>
       <p>ESPACIO PARA ANUNCIO</p>
