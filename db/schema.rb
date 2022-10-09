@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2022_10_07_220013) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "contact_name", null: false
-    t.string "description", limit: 767, null: false
+    t.string "description", null: false
     t.string "year_start", null: false
     t.string "phone_num", null: false
     t.string "address", null: false
