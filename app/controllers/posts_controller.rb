@@ -37,6 +37,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.posteable_type == 'Supplier'
+      @company = Supplier.find(@post.posteable_id)
+    elsif @post.posteable_type == 'Maquila'
+      @company = Maquila.find(@post.posteable_id)
+    end
   end
 
   private

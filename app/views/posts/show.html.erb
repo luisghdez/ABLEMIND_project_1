@@ -3,7 +3,7 @@
     <%= link_to 'Contactar', '#form', class: 'btn green-btn' %>
   </div>
   <div class='row'>
-    <div class='col-8'>
+    <div class='col-9'>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -32,19 +32,23 @@
         </div>
       </div>
     </div>
-    <div class='col-3 d-flex flex-column justify-content-center align-items-center border'>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
-      <br><br><br><br><br>
-      <p>ESPACIO PARA ANUNCIO</p>
+    <div class='col-3 company-card'>
+      <h5>Ofrecido por <%= @company.company %></h5>
+      <div class='d-flex'>
+        <i class="fa fa-phone mr-1"></i>
+        <p><%= @company.phone_num %></p>
+      </div>
+      <div class='d-flex'>
+        <i class="fa fa-map-marker-alt mr-1"></i>
+        <p><%= @company.address %></p>
+      </div>
+      <p>Mas de <%= @company.company %></p>
+      <ul>
+      <% @company.posts.each do |p| %>
+        <li>
+          <%= link_to p.name, post_path(p) %>
+        </li>
+      <% end %>
+      </ul>
     </div>
   </div>
