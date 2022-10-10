@@ -1,1 +1,4 @@
 <h1><%= @post.name %></h1>
+<% @post.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>

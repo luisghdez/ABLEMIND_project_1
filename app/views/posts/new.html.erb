@@ -4,12 +4,9 @@
   <%= simple_form_for [@newpost] do |f| %>
     <%= f.input :name, label: 'Titulo' %>
     <%= f.input :description, as: :text, label: 'Descripcion' %>
-    <%= f.fields_for :photo do |t| %>
     <div class='mb-3'>
-      <%= t.label :image, label: 'Imagenes' %>
-      <%= t.file_field :image, :multiple => true %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
-    <% end %>
     <div><%= f.button :submit, 'Agregar', class: 'btn register-btn' %></div>
   <% end %>
   </div>

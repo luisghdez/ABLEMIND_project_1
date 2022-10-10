@@ -22,9 +22,9 @@ class PostsController < ApplicationController
     @newpost = Post.new(posts_params)
     @newpost.posteable = company
     if @newpost.save
-      params[:post][:photo]['image'].each do |img|
-      @photo = @newpost.photos.create!(:image => img)
-      end
+      # params[:post][:photo]['image'].each do |img|
+      # @photo = @newpost.photos.create!(:image => img)
+      # end
       if company.instance_of?(Maquila)
         redirect_to maquiladashboard_path
       elsif company.instance_of?(Supplier)
@@ -42,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def posts_params
-    params.require(:post).permit(:name, photo_attributes: [:image])
+    params.require(:post).permit(:name, :description, photos: [])
   end
 end
