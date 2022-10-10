@@ -41,7 +41,7 @@
         <div class="form-inputs register-form-inputs">
           <%= f.input :company, required: true, label: 'Email', placeholder: current_user.email %>
           <%= f.input :contact_name, required: true, label: 'Persona de contacto' %>
-          <%= f.input :description, as: :text, required: true, label: 'Detalla tus necesidades', :input_html => {:minlength => 200} %>
+          <%= f.input :description, as: :text, required: true, label: 'Detalla tus necesidades' %>
           <p>En cual producto estas interesado?</p>
           <div class="selector mb-3"><%= f.collection_select :post_id, @sup_products, :id, :name, required: true %></div>
           <%= f.input :phone_num, required: true, label: 'Telefono' %>
