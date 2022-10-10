@@ -1,4 +1,50 @@
-<h1><%= @post.name %></h1>
-<% @post.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <div class='mb-4 sup-header'>
+    <h1><%= @post.name %></h1>
+    <%= link_to 'Contactar', '#form', class: 'btn green-btn' %>
+  </div>
+  <div class='row'>
+    <div class='col-8'>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag @post.photos.first.key, class: 'd-block w-100', style: "height: 500px !important;" %>
+          </div>
+          <% @post.photos.drop(1).each do |photo| %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, class: 'd-block w-100', style: "height: 500px !important;" %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <h5>Descripción:</h5>
+      <p><%= @post.description %></p>
+      <div id='form' class='register-form'>
+        <div class='my-forms-contact shadow bg-white'>
+        <h1>Contactar</h1>
+        </div>
+      </div>
+    </div>
+    <div class='col-3 d-flex flex-column justify-content-center align-items-center border'>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+      <br><br><br><br><br>
+      <p>ESPACIO PARA ANUNCIO</p>
+    </div>
+  </div>
