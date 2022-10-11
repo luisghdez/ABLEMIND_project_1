@@ -37,7 +37,11 @@
       </div>
     </div>
     <div class='col-3 company-card'>
+    <% if @company.instance_of?(Maquila) %>
+      <h5>Ofrecido por <%= @company.name %></h5>
+    <% else %>
       <h5>Ofrecido por <%= @company.company %></h5>
+    <% end %>
       <div class='d-flex'>
         <i class="fa fa-phone mr-1"></i>
         <p><%= @company.phone_num %></p>
@@ -46,7 +50,11 @@
         <i class="fa fa-map-marker-alt mr-1"></i>
         <p><%= @company.address %></p>
       </div>
+    <% if @company.instance_of?(Maquila) %>
+      <p>Mas de <%= @company.name %></p>
+    <% else %>
       <p>Mas de <%= @company.company %></p>
+    <% end %>
       <ul>
       <% @company.posts.each do |p| %>
         <li>

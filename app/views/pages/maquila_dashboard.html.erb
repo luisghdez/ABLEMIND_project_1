@@ -1,18 +1,28 @@
 <h1>Dashboard para <%= @mymaq.name %></h1>
 <%= link_to 'Agregar anuncio', new_post_path, class: 'btn register-btn' %>
 
-<p>Clientes potenciales: </p>
-
-<p>Mis anuncios:</p>
+<p class='m-0 pt-3'><strong>Clientes Potenciales:</strong></p>
 <div class='row'>
-  <p class='col-sm'>Nombre</p>
-  <p class='col-sm'>Likes</p>
+  <p class='col-sm m-0 p-3'>Empresa</p>
+  <p class='col-sm m-0 p-3'>Contacto</p>
+  <p class='col-sm m-0 p-3'>Correo</p>
+  <p class='col-sm m-0 p-3'>Producto</p>
+</div>
+
+<p class='m-0 pt-3'><strong>Mis Anuncios:</strong></p>
+<div class='row'>
+  <p class='col-sm m-0 p-3'>Producto</p>
+  <p class='col-sm m-0 p-3'>Likes</p>
+  <p class='col-sm m-0 p-3'>Views</p>
+  <p class='col-sm m-0 p-3'>Interesados</p>
 </div>
 <% @anuncios.each do |a| %>
   <%= link_to post_path(a) do %>
-    <div class='row'>
-      <p class='col-sm'><%= a.name %></p>
-      <p class='col-sm'><%= a.likes.count %></p>
+    <div class='row dash-card'>
+      <p class='col-sm m-0 p-3'><%= a.name %></p>
+      <p class='col-sm m-0 p-3'><%= a.likes.count %></p>
+      <p class='col-sm m-0 p-3'><%= '0' %></p>
+      <p class='col-sm m-0 p-3'><%= '0' %></p>
     </div>
   <% end %>
 <% end %>
