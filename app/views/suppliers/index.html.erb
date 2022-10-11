@@ -1,4 +1,4 @@
-<h1>Todos nuestros proveedores</h1>
+<h1>Directorio de empresas</h1>
 <%= form_with url: suppliers_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -9,10 +9,17 @@
 <% end %>
   <div class="row pt-4">
     <div class='col-3'>
-      <p>Categories</p>
-      <ul>
+      <strong><p>Categories</p></strong>
+      <p>Proveedores</p>
+      <ul class='category-scroll'>
         <% @categories.each do |c| %>
-          <li><%= link_to c.name, '#' %></li>
+          <li class='border p-1 d-flex justify-content-between'><%= link_to c.name, '#' %><span style='color: grey;'><%= c.suppliers.count %></span></li>
+        <% end %>
+      </ul>
+      <p>Maquilas</p>
+      <ul class='category-scroll'>
+        <% @categories.each do |c| %>
+          <li class='border p-1 d-flex justify-content-between'><%= link_to c.name, '#' %><span style='color: grey;'><%= c.suppliers.count %></span></li>
         <% end %>
       </ul>
     </div>

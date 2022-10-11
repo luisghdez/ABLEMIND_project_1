@@ -22,9 +22,6 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.home-search {
-}
-
 // .home-card {
 //   display: flex;
 //   flex-direction: column;
@@ -63,4 +60,14 @@
   background-color: #20af5e1f;
   padding-top: 2vh;
   height: fit-content;
+}
+
+.category-scroll {
+  max-height: 50vh;
+  overflow: scroll;
+  list-style: none;
+
+  li:hover {
+    background-color: rgba(128, 128, 128, 0.275);
+  }
 }

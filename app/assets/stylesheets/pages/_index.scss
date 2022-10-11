@@ -4,7 +4,9 @@
 
 .search-card {
   display: flex;
-  padding-bottom: 1.5rem;
+  padding-bottom: .75rem;
+  padding-top: .75rem;
+  border-bottom: 1px #20af5e1f solid;
 }
 
 .search-card-body {
@@ -15,5 +17,6 @@
 
 .search-card-img {
   height: 30vh;
+  max-height: 30vh;
   width: auto;
 }
