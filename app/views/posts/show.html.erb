@@ -4,6 +4,7 @@
   </div>
   <div class='row'>
     <div class='col-9'>
+      <% if @post.photos.attached? %>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -24,6 +25,9 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      <% else %>
+        <p>*Este producto no contiene fotos*</p>
+      <% end %>
       <h5>Descripción:</h5>
       <p><%= @post.description %></p>
       <div id='form' class='register-form'>
