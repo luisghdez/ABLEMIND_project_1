@@ -16,6 +16,6 @@ class MaquilasController < ApplicationController
   private
 
   def maquilas_params
-    params.require(:maquila).permit(:name, :contact_name, :phone_num, :address, :zip_code)
+    params.require(:maquila).permit(:name, :photo, :contact_name, :phone_num, :address, :zip_code)
   end
 end

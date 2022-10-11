@@ -19,7 +19,11 @@
     <div class='col-9'>
       <% @suppliers.each do |s| %>
           <div class="search-card">
+          <% if s.photo.attached? %>
+            <%= cl_image_tag s.photo.key, class: 'search-card-img' %>
+            <% else %>
             <img class="search-card-img" src="https://acsaportones.com/wp-content/uploads/2015/11/default-placeholder-300x300.png" alt="Card image cap">
+          <% end %>
             <div class="search-card-body">
               <div>
                 <h5 class="card-title"><%= s.company %></h5>
