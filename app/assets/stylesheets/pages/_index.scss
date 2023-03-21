@@ -44,3 +44,10 @@
 .pagination {
   justify-content: space-evenly;
 }
+
+.sticky-column {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 1.5rem);
+  overflow: auto;
+}
