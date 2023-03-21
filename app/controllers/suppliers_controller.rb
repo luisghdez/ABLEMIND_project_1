@@ -16,6 +16,7 @@ class SuppliersController < ApplicationController
     else
       @suppliers = Supplier.all
     end
+    @suppliers = @suppliers.page(params[:page]).per(10)
     @categories = Category.all.sort_by(&:name)
   end
 
